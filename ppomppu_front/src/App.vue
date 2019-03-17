@@ -3,6 +3,7 @@
     <img src="./assets/logo.png">
     <div>
       code scaffolding
+      <router-view></router-view>
     </div>
   </div>
 </template>

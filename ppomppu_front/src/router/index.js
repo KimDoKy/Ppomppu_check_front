@@ -1,18 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import App from '../App.vue'
+import Home from '../components/Home.vue'
+import Login from '../components/Login.vue'
+import UserInfo from '../components/UserInfo.vue'
+import ContentList from '../components/ContentList.vue'
+import NotFound from '../components/NotFound.vue'
 
 Vue.use(VueRouter)
-
-const Login = { template: '<div>Login Page</div>' }
-const UserInfo = { template: '<div>User Info Page</div>' }
-const ContentList = { template: '<div>Content List</div>' }
-const NotFound = { template: '<div>Page not found</div>' }
 
 const router = new VueRouter({
   mode: 'history',
   routes: [
-    { path: '/', component: App },
+    { path: '/', component: Home },
     { path: '/login', component: Login },
     { path: '/userinfo', component: UserInfo },
     { path: '/list', component: ContentList },
