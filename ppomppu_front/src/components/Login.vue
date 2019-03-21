@@ -17,12 +17,15 @@
 </template>
 
 <script>
+import {auth, setAuthInHeader} from '../api'
+
 export default {
   data() {
     return {
       email: '',
       password: '',
-      error: ''
+      error: '',
+      rPath: ''
     }
   },
   computed: {
@@ -30,11 +33,22 @@ export default {
       return !this.email || !this.password
     }
   },
+  created() {
+    this.rPath = this.$route.query.rPath || '/'
+  },
   methods: {
     onSubmit() {
-      console.log(this.email, this.password)
+      auth.login(this.email, this.password)
+        .then(data => {
+          localStorage.setItem('token', data.key)
+          setAuthInHeader(data.key)
+          this.$router.push(this.rPath)
+        })
+        .catch(err => {
+          this.error = "로그인 정보가 일치하지 않습니다."
+        })
+      }
     }
-  }
 }
 </script>
 

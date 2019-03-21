@@ -12,7 +12,7 @@ const request = (method, url, data) => {
     method,
     url: DOMAIN + url,
     data
-  }).then(result => data)
+  }).then(result => result.data)
     .catch(result => {
       const {status} = result.response
       if (status === Unauthorized) return onUnauthorized()
@@ -20,8 +20,21 @@ const request = (method, url, data) => {
     })
 }
 
+export const setAuthInHeader = token => {
+  axios.defaults.headers.common['Authorization'] = token ? `token ${token}` : 'null';
+}
+
+const {token} = localStorage
+if (token) setAuthInHeader(token)
+
 export const contents = {
   fetch() {
     return request('post', '/keywords')
+  }
+}
+
+export const auth = {
+  login(email, password) {
+    return request('post', '/rest-auth/login/', {email, password})
   }
 }
