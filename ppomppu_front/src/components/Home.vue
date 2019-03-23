@@ -10,13 +10,18 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import AddKeyword from './AddKeyword.vue'
 
 export default {
   data() {
     return {
-      isAddKey : false,
     }
+  },
+  computed: {
+    ...mapState([
+      'isAddKey'
+    ])
   },
   components: {
     AddKeyword

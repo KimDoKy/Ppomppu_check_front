@@ -3,7 +3,9 @@
     Content List
     <div v-if='loading'>Loading ...</div>
     <div v-else>
-      <div v-for='key in keywords'>{{key}}</div>
+      <div v-for='key in keywords'>
+        <li>Keyword: {{key.keyword}} | 알람: {{key.alarm}} | link: {{key.update_link}}</li>
+      </div>
     </div>
   </div>
 </template>
