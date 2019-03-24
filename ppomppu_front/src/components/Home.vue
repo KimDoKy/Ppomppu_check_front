@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="add-keyword">
-      <a href="" @click.prevent="addKeyword">
+      <a href="" @click.prevent="SET_IS_ADD_KEY(true)">
         Add keyword
       </a>
     </div>
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapState, mapMutations} from 'vuex'
 import AddKeyword from './AddKeyword.vue'
 
 export default {
@@ -27,9 +27,9 @@ export default {
     AddKeyword
   },
   methods: {
-    addKeyword() {
-      this.isAddKey = true
-    }
+    ...mapMutations([
+      'SET_IS_ADD_KEY'
+    ])
   }
 }
 </script>
