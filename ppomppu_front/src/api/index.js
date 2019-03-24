@@ -30,6 +30,9 @@ if (token) setAuthInHeader(token)
 export const contents = {
   fetch() {
     return request('post', '/keywords')
+  },
+  create(keyword) {
+    return request('post', '/keywords/', {keyword})
   }
 }
 

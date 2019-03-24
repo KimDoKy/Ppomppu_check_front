@@ -24,7 +24,7 @@
 
 <script>
 import Modal from './Modal.vue'
-import {mapMutations} from 'vuex'
+import {mapMutations, mapActions} from 'vuex'
 
 export default {
   components: {
@@ -48,9 +48,13 @@ export default {
     ...mapMutations([
       'SET_IS_ADD_KEY'
     ]),
+    ...mapActions([
+      'ADD_KEY'
+    ]),
     addKeyword() {
       this.SET_IS_ADD_KEY(false)
-      this.$emit('submit', this.input)
+      this.$emit('submit')
+      this.ADD_KEY({'keyword':this.input})
     }
   }
 }

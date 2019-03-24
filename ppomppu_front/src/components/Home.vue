@@ -11,7 +11,7 @@
         Add keyword
       </a>
     </div>
-    <AddKeyword v-if="isAddKey" @close="isAddKey=false"/>
+    <AddKeyword v-if="isAddKey" @submit="onAddKey"/>
   </div>
 </template>
 
@@ -51,6 +51,9 @@ export default {
         .finally(() => {
           this.loading = false
         })
+    },
+    onAddKey() {
+      this.fetchData()
     }
   }
 }
