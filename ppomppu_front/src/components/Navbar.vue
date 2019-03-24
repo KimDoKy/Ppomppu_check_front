@@ -4,7 +4,6 @@
     <a href="" v-if="isAuth" @click.prevent="logout">Logout</a>
     <router-link v-else to="/login">Login</router-link>
     <router-link to="/UserInfo">UserInfo</router-link>
-    <router-link to="/list">Contentlist</router-link>
   </div>
 </template>
 
