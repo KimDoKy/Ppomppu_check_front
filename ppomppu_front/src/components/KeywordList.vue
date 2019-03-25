@@ -2,14 +2,25 @@
   <div>
     <div v-if="loading">Loading...</div>
     <div v-else>
-      <KeywordList />
+      <div>
+        <form @submit.prevent="ChageOption">
+            <table>
+              <tr>
+                <th>Keyword</th>
+                <th>Alarm</th>
+                <th>Delete</th>
+                <th>Save</th>
+              </tr>
+              <tr v-for="key in keywords">
+                <td><input type="text" name="" v-bind:value="key.keyword" /></td>
+                <td><input type="checkbox" v-model="key.alarm" /></td>
+                <td><button>Delete</button></td>
+                <td><input type="submit" value="save"></td>
+              </tr>
+            </table>
+        </form>
+      </div>
     </div>
-    <div class="add-keyword">
-      <button @click.prevent="SET_IS_ADD_KEY(true)">
-        Add keyword
-      </button>
-    </div>
-    <AddKeyword v-if="isAddKey" @submit="onAddKey"/>
   </div>
 </template>
 
@@ -17,7 +28,6 @@
 import {mapState, mapMutations} from 'vuex'
 import AddKeyword from './AddKeyword.vue'
 import {contents} from '../api'
-import KeywordList from './KeywordList.vue'
 
 export default {
   data() {
@@ -29,19 +39,7 @@ export default {
   created() {
     this.fetchData()
   },
-  computed: {
-    ...mapState([
-      'isAddKey'
-    ])
-  },
-  components: {
-    AddKeyword,
-    KeywordList
-  },
   methods: {
-    ...mapMutations([
-      'SET_IS_ADD_KEY'
-    ]),
     fetchData() {
       loading: true
       contents.fetch()
@@ -52,8 +50,8 @@ export default {
           this.loading = false
         })
     },
-    onAddKey() {
-      this.fetchData()
+    ChageOption() {
+      console.log(this.keywords)
     }
   }
 }
@@ -62,6 +60,7 @@ export default {
 <style>
 table, th, tr, td {
   border: 1px solid;
+  width: 100%;
 }
 form {
   border: 1px solid;
