@@ -14,6 +14,11 @@ const actions =  {
       return api.auth.login(email, password).then(
         ({key}) => commit('LOGIN', key)
       )
+    },
+    DELETE_KEYWORD(data) {
+      console.log(data)
+      return api.contents.destroy(data).then(_ =>
+        this.$router.push('/'))
     }
   }
 

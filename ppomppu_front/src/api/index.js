@@ -33,6 +33,9 @@ export const contents = {
   },
   create(keyword) {
     return request('post', '/keywords/', {keyword})
+  },
+  destroy(id) {
+    return request('delete', `/keywords/${id}`)
   }
 }
 

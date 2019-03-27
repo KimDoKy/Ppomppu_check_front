@@ -14,7 +14,7 @@
               <tr v-for="key in keywords">
                 <td><input type="text" name="" v-bind:value="key.keyword" /></td>
                 <td><input type="checkbox" v-model="key.alarm" /></td>
-                <td><button>Delete</button></td>
+                <td><button v-on:click="deleteKeyword(key)">Delete</button></td>
                 <td><input type="submit" value="save"></td>
               </tr>
             </table>
@@ -43,9 +43,15 @@ export default {
       'keywords'
     ])
   },
+  watch: {
+    'keywords': {
+      handler: 'fetchData',
+      immediate: true
+    }
+  },
   methods: {
     ...mapActions([
-      'FETCH_KEYWORD'
+      'FETCH_KEYWORD',
     ]),
     fetchData() {
       loading: true
@@ -55,7 +61,13 @@ export default {
         })
     },
     ChageOption() {
-      console.log(this.keywords)
+      // console.log(this.keywords)
+    },
+    deleteKeyword(key) {
+      console.log(key.id)
+      contents.destroy(key.id)
+        .then(_=> this.$router.push('/'))
+        .catch(error => console.lof(error))
     }
   }
 }
