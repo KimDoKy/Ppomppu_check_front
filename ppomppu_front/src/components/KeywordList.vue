@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import {mapState, mapMutations} from 'vuex'
+import {mapState, mapActions} from 'vuex'
 import AddKeyword from './AddKeyword.vue'
 import {contents} from '../api'
 
@@ -33,19 +33,23 @@ export default {
   data() {
     return {
       loading: false,
-      keywords: []
     }
   },
   created() {
     this.fetchData()
   },
+  computed: {
+    ...mapState([
+      'keywords'
+    ])
+  },
   methods: {
+    ...mapActions([
+      'FETCH_KEYWORD'
+    ]),
     fetchData() {
       loading: true
-      contents.fetch()
-        .then(data => {
-          this.keywords = data
-        })
+      this.FETCH_KEYWORD()
         .finally(() => {
           this.loading = false
         })
