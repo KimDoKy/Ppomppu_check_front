@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import {auth, setAuthInHeader} from '../api'
+import {mapActions} from 'vuex'
 
 export default {
   data() {
@@ -37,13 +37,14 @@ export default {
     this.rPath = this.$route.query.rPath || '/'
   },
   methods: {
+    ...mapActions([
+      'LOGIN'
+    ]),
     onSubmit() {
-      auth.login(this.email, this.password)
-        .then(data => {
-          localStorage.setItem('token', data.key)
-          setAuthInHeader(data.key)
+      this.LOGIN({email:this.email, password:this.password})
+        .then(data =>
           this.$router.push(this.rPath)
-        })
+        )
         .catch(err => {
           this.error = "로그인 정보가 일치하지 않습니다."
         })
