@@ -8,17 +8,13 @@ const actions =  {
       return api.contents.fetch()
         .then(data => {
           commit('SET_KEYWORD', data)
+          commit('SET_KEYWORD_LENGTH', data.length)
         })
     },
     LOGIN({commit}, {email, password}) {
       return api.auth.login(email, password).then(
         ({key}) => commit('LOGIN', key)
       )
-    },
-    DELETE_KEYWORD(data) {
-      console.log(data)
-      return api.contents.destroy(data).then(_ =>
-        this.$router.push('/'))
     }
   }
 

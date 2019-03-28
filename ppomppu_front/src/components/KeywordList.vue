@@ -3,19 +3,20 @@
     <div v-if="loading">Loading...</div>
     <div v-else>
       <div>
-        <form @submit.prevent="ChageOption">
+        <!-- <form @submit.prevent="chageOption"> -->
+          <form>
             <table>
               <tr>
                 <th>Keyword</th>
                 <th>Alarm</th>
-                <th>Delete</th>
                 <th>Save</th>
+                <th>Delete</th>
               </tr>
               <tr v-for="key in keywords">
-                <td><input type="text" name="" v-bind:value="key.keyword" /></td>
+                <td><input type="text" name="" v-model="key.keyword" /></td>
                 <td><input type="checkbox" v-model="key.alarm" /></td>
-                <td><button v-on:click="deleteKeyword(key)">Delete</button></td>
-                <td><input type="submit" value="save"></td>
+                <td><button @click.prevent="chageOption(key)">save</button></td>
+                <td><button @click.prevent="deleteKeyword(key)">Delete</button></td>
               </tr>
             </table>
         </form>
@@ -40,11 +41,12 @@ export default {
   },
   computed: {
     ...mapState([
-      'keywords'
+      'keywords',
+      'keywordLength'
     ])
   },
   watch: {
-    'keywords': {
+    'keywordLength': {
       handler: 'fetchData',
       immediate: true
     }
@@ -54,19 +56,19 @@ export default {
       'FETCH_KEYWORD',
     ]),
     fetchData() {
+      console.log('keywordlist loading')
       loading: true
       this.FETCH_KEYWORD()
         .finally(() => {
           this.loading = false
         })
     },
-    ChageOption() {
-      // console.log(this.keywords)
+    chageOption(key) {
+      contents.update(key.id, key.keyword, key.alarm)
     },
     deleteKeyword(key) {
-      console.log(key.id)
       contents.destroy(key.id)
-        .then(_=> this.$router.push('/'))
+        .then(_=> this.FETCH_KEYWORD())
         .catch(error => console.lof(error))
     }
   }

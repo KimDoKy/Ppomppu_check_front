@@ -17,6 +17,9 @@ const mutations = {
       state.token = null
       delete localStorage.token
       setAuthInHeader(null)
+    },
+    SET_KEYWORD_LENGTH(state, length) {
+      return state.keywordLength = length
     }
   }
 

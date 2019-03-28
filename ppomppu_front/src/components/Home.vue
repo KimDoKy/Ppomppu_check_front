@@ -9,7 +9,7 @@
         Add keyword
       </button>
     </div>
-    <AddKeyword v-if="isAddKey" @submit="onAddKey"/>
+    <AddKeyword v-if="isAddKey" />
   </div>
 </template>
 
@@ -43,6 +43,7 @@ export default {
       'SET_IS_ADD_KEY'
     ]),
     fetchData() {
+      console.log('home loading')
       loading: true
       contents.fetch()
         .then(data => {
@@ -51,9 +52,6 @@ export default {
         .finally(() => {
           this.loading = false
         })
-    },
-    onAddKey() {
-      this.fetchData()
     }
   }
 }

@@ -36,11 +36,17 @@ export const contents = {
   },
   destroy(id) {
     return request('delete', `/keywords/${id}`)
+  },
+  update(id, keyword, alarm) {
+    return request('patch', `/keywords/${id}`, {keyword, alarm})
   }
 }
 
 export const auth = {
   login(email, password) {
     return request('post', '/rest-auth/login/', {email, password})
+  },
+  userInfo() {
+    return request('get', '/users/')
   }
 }

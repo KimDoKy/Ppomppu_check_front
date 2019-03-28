@@ -49,12 +49,14 @@ export default {
       'SET_IS_ADD_KEY'
     ]),
     ...mapActions([
-      'ADD_KEY'
+      'ADD_KEY',
+      'FETCH_KEYWORD'
     ]),
     addKeyword() {
       this.SET_IS_ADD_KEY(false)
       this.$emit('submit')
       this.ADD_KEY({'keyword':this.input})
+      this.FETCH_KEYWORD()
     }
   }
 }
