@@ -7,8 +7,8 @@
         <th>email</th>
       </tr>
       <tr>
-        <td>{{userData.username}}</td>
-        <td>{{userData.email}}</td>
+        <td>{{userInfo.username}}</td>
+        <td>{{userInfo.email}}</td>
       </tr>
     </table>
   </div>
@@ -16,20 +16,27 @@
 
 <script>
 import {auth} from '../api'
+import {mapState, mapActions} from 'vuex'
 
 export default {
   data() {
     return {
-      userData: {}
     }
   },
   created() {
     this.fetchData()
   },
+  computed: {
+    ...mapState([
+      'userInfo'
+    ])
+  },
   methods: {
+    ...mapActions([
+      'ADD_UESRINFO'
+    ]),
     fetchData() {
-      auth.userInfo()
-        .then(result => this.userData = result)
+      this.ADD_UESRINFO()
     }
   }
 }

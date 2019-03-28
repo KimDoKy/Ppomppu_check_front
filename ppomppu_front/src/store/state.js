@@ -1,4 +1,5 @@
 const state = {
+    userInfo: {},
     isAddKey: false,
     keywords: [],
     token: '',

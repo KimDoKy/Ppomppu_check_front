@@ -1,4 +1,4 @@
-import {setAuthInHeader} from '../api'
+import {setAuthInHeader, auth} from '../api'
 
 const mutations = {
     SET_IS_ADD_KEY(state, toggle) {
@@ -6,6 +6,9 @@ const mutations = {
     },
     SET_KEYWORD(state, keywords) {
       return state.keywords = keywords
+    },
+    SET_USERINFO(state, info) {
+      return state.userInfo = info
     },
     LOGIN(state, token) {
       if (!token) return
