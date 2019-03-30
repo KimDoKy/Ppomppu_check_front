@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div v-if="loading">Loading...</div>
-    <div v-else>
+    <div>
       <KeywordList />
     </div>
     <div class="add-keyword">
@@ -20,15 +19,6 @@ import {contents} from '../api'
 import KeywordList from './KeywordList.vue'
 
 export default {
-  data() {
-    return {
-      loading: false,
-      keywords: []
-    }
-  },
-  created() {
-    this.fetchData()
-  },
   computed: {
     ...mapState([
       'isAddKey'
@@ -41,18 +31,7 @@ export default {
   methods: {
     ...mapMutations([
       'SET_IS_ADD_KEY'
-    ]),
-    fetchData() {
-      console.log('home loading')
-      loading: true
-      contents.fetch()
-        .then(data => {
-          this.keywords = data
-        })
-        .finally(() => {
-          this.loading = false
-        })
-    }
+    ])
   }
 }
 </script>

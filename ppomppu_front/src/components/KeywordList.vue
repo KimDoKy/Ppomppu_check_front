@@ -43,12 +43,9 @@ export default {
     ...mapState([
       'keywords',
       'keywordLength'
-    ])
-  },
-  watch: {
-    'keywordLength': {
-      handler: 'fetchData',
-      immediate: true
+    ]),
+    keywordLength() {
+      console.log('length fetch')
     }
   },
   methods: {
@@ -56,7 +53,6 @@ export default {
       'FETCH_KEYWORD',
     ]),
     fetchData() {
-      console.log('keywordlist loading')
       loading: true
       this.FETCH_KEYWORD()
         .finally(() => {
