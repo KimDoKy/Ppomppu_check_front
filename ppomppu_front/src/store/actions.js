@@ -7,13 +7,17 @@ const actions =  {
     FETCH_KEYWORD ({commit}) {
       return api.contents.fetch()
         .then(data => {
-          commit('SET_KEYWORD', data)
-          commit('SET_KEYWORD_LENGTH', data.length)
+          commit('SET_KEYWORD', data.keywords)
+          commit('SET_KEYWORD_LENGTH', data.keywords.length)
         })
     },
     LOGIN({commit}, {email, password}) {
       return api.auth.login(email, password).then(
         ({key}) => commit('LOGIN', key)
+    )},
+    SOCIAL_LOGIN({commit}, {access_token}) {
+      return api.auth.socialLogin(access_token).then(
+       ({key}) => commit('LOGIN', key) 
     )},
     ADD_UESRINFO({commit}) {
       return api.auth.userInfo()

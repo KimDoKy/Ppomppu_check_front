@@ -2,6 +2,7 @@ import axios from 'axios'
 import router from '../router'
 
 const DOMAIN = 'https://api.pycon.shop'
+// const DOMAIN = 'http://localhost:8000'
 const Unauthorized = 401
 const onUnauthorized = () => {
   router.push('/login')
@@ -29,7 +30,7 @@ if (token) setAuthInHeader(token)
 
 export const contents = {
   fetch() {
-    return request('post', '/keywords')
+    return request('get', '/users/')
   },
   create(keyword) {
     return request('post', '/keywords/', {keyword})
@@ -47,6 +48,9 @@ export const auth = {
     return request('post', '/rest-auth/login/', {email, password})
   },
   userInfo() {
-    return request('get', '/users/')
+    return request('get', '/rest-auth/user/')
+  },
+  socialLogin(token) {
+    return request('post', '/rest-auth/kakao/', {access_token: token})
   }
 }

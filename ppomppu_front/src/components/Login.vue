@@ -13,11 +13,15 @@
       <button type="submit" class="btn" :class="{'btn-success': !invalidForm}" :disabled="invalidForm">Login</button>
       <p class="error" v-if="error">{{error}}</p>
     </form>
+    <a id="custom-login-btn" @click.prevent="loginWithKakao()">
+    </a>
+    <div><br><Kakao /></div>
     </div>
 </template>
 
 <script>
 import {mapActions} from 'vuex'
+import Kakao from './Kakao.vue'
 
 export default {
   data() {
@@ -49,7 +53,8 @@ export default {
           this.error = "로그인 정보가 일치하지 않습니다."
         })
       }
-    }
+  },
+  components: { Kakao }
 }
 </script>
 

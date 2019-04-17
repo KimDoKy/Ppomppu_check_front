@@ -65,7 +65,7 @@ export default {
     deleteKeyword(key) {
       contents.destroy(key.id)
         .then(_=> this.FETCH_KEYWORD())
-        .catch(error => console.lof(error))
+        .catch(error => console.log(error))
     }
   }
 }
