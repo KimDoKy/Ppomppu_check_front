@@ -1,9 +1,8 @@
 <template>
     <div>
-        <h2>가입하기</h2>
     <form @submit.prevent="onRegistration">
         <div class="username">
-          <label for="username">User Name</label>
+          <label for="username">이름</label>
           <input class="form-control" type="text" v-model="username" autofocus placeholder="ex.tester"/>
         </div>
         <div class="email">
@@ -11,11 +10,12 @@
           <input class="form-control" type="text" v-model="email" placeholder="test@test.com"/>
         </div>
         <div class="password">
-          <label for="password">Password</label>
+          <label for="password">비밀번호</label>
           <input class="form-control" type="password" v-model="password1"/>
-          <input class="form-control" type="password" v-model="password2">비밀번호 확인</input>
+          <label for="password2">비밀번호 확인</label>
+          <input class="form-control" type="password" v-model="password2"/>
         </div>
-        <button type="submit" class="btn">Registration</button>
+        <button type="submit" class="btn">가입하기</button>
         <p class="error" v-if="error">{{error}}</p>
     </form>    
     </div>
@@ -51,7 +51,7 @@ export default {
           this.$router.push(this.rPath)
         )
         .catch(err => {
-            this.error = "가입 정보를 확인해주세요."
+            this.error = "가입 정보를 확인하세요."
         })
       }
   }
