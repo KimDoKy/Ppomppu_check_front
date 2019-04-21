@@ -16,12 +16,14 @@
     <a id="custom-login-btn" @click.prevent="loginWithKakao()">
     </a>
     <div><br><Kakao /></div>
+    <router-link to="/registration">Registration</router-link>
     </div>
 </template>
 
 <script>
 import {mapActions} from 'vuex'
 import Kakao from './Kakao.vue'
+import Registration from './Registration.vue'
 
 export default {
   data() {
@@ -54,7 +56,7 @@ export default {
         })
       }
   },
-  components: { Kakao }
+  components: { Kakao, Registration }
 }
 </script>
 

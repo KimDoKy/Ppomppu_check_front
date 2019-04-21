@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../components/Home.vue'
+import Registration from '../components/Registration.vue'
 import Login from '../components/Login.vue'
 import UserInfo from '../components/UserInfo.vue'
 import NotFound from '../components/NotFound.vue'
@@ -17,6 +18,7 @@ const router = new VueRouter({
   mode: 'history',
   routes: [
     { path: '/', component: Home, beforeEnter: requireAuth },
+    { path: '/registration', component: Registration },
     { path: '/login', component: Login },
     { path: '/userinfo', component: UserInfo, beforeEnter: requireAuth },
     { path: '*', component: NotFound }

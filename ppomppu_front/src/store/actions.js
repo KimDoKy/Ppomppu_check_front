@@ -24,7 +24,11 @@ const actions =  {
         .then(resulte => {
           commit('SET_USERINFO', resulte)
         })
-    }
+    },
+    REGISTRATION({commit}, {username, email, password1, password2}) {
+      return api.auth.registration(username, email, password1, password2)
+        .then(({key}) => commit('LOGIN', key)
+    )}
   }
 
 export default actions
