@@ -1,16 +1,24 @@
 <template>
   <div id="app">
+    <Navbar />
     <img src="./assets/logo.png">
     <div>
-      code scaffolding
-      <Navbar />
+      뽐뿌 업데이트 체커!!
+      <br />
       <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
+import BootstrapVue from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 import Navbar from './components/Navbar.vue'
+import { mapActions } from 'vuex';
+
+Vue.use(BootstrapVue)
 
 export default {
   name: 'app',
@@ -59,7 +67,7 @@ html, body, #app {
 .btn {
   border-radius: 3px;
   padding: 6px 8px;
-  background-color: #e2e4e6;
+  background-color: #17a2b8;
   border: none;
   display: inline-block;
   color: #fff;
@@ -73,13 +81,14 @@ html, body, #app {
   box-shadow: 0 1px 0 #519839;
 }
 .form-control {
-  width: 100%;
+  width: 75%;
   box-sizing: border-box;
   background-color: #e2e4e6;
   border: 1px solid #cdd2d4;
   border-radius: 3px;
   display: block;
-  margin-bottom: 12px;
+  margin: 0 auto;
+  margin-bottom: 20px;
   padding: 6px 8px;
   transition: background-color .3s;
 }
