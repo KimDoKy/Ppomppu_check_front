@@ -1,9 +1,19 @@
 <template>
   <div id="app">
     <Navbar />
+
+    <!--
+    <div style="position: fixed; z-index: -99; width: 100%; height: 100%">
+      <iframe src="https://www.youtube.com/embed/ZntOhK8dxqU?autoplay=1&amp;start=30" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;" allowfullscreen></iframe>
+    </div>
+    -->
+
+    <br>
+    <br>
+    <br>
     <img src="./assets/logo.png">
     <div>
-      뽐뿌 업데이트 체커!!
+      뽐뿌 uPDATE cHECKER
       <br />
       <router-view></router-view>
     </div>
@@ -33,23 +43,21 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  /* color: white; */
   margin-top: 60px;
 }
 
 h1, h2 {
   font-weight: normal;
 }
-
 ul {
   list-style-type: none;
   padding: 0;
 }
-
 li {
   display: inline-block;
   margin: 0 10px;
 }
-
 a {
   color: #42b983;
 }
@@ -57,12 +65,36 @@ html, body, #app {
   height: 100%;
   margin: 0px;
 }
+iframe {
+  width: 180%;
+  height: 100%;
+}
+table {
+  border-collapse: collapse;
+  line-height: 1.5;
+}
+th {
+  padding: 10px;
+  font-weight: blod;
+  vertical-align: top;
+  background-color: #17a2b8;
+}
+td {
+  width: 350px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
 #app {
   flex-direction: column;
 }
 .container {
   flex-grow: 1;
   position: relative;
+}
+.nav {
+  position: fixed;
+  width: 100%;
 }
 .btn {
   border-radius: 3px;

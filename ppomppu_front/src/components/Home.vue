@@ -3,8 +3,9 @@
     <div>
       <KeywordList />
     </div>
+    <br>
     <div class="add-keyword">
-      <button @click.prevent="SET_IS_ADD_KEY(true)">
+      <button class="btn" @click.prevent="SET_IS_ADD_KEY(true)">
         Add keyword
       </button>
     </div>
@@ -38,7 +39,11 @@ export default {
 
 <style>
 table, th, tr, td {
-  border: 1px solid;
+  width: 80%;
+  border: 1px solid #ffffff;
+  padding: 0px;
+  margin: auto;
+  position: 50% 50%;
 }
 form {
   border: 1px solid;
