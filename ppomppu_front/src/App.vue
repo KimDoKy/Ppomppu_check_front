@@ -17,6 +17,7 @@
       <br />
       <router-view></router-view>
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -26,13 +27,14 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import Navbar from './components/Navbar.vue'
+import Footer from './components/Footer.vue'
 import { mapActions } from 'vuex';
 
 Vue.use(BootstrapVue)
 
 export default {
   name: 'app',
-  components: { Navbar }
+  components: { Navbar, Footer }
 }
 </script>
 
