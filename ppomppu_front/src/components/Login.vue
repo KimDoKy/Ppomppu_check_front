@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2>Log in</h2>
+    <hr>
     <form @submit.prevent="onSubmit">
       <div class="email">
         <label for="email">Email</label>
@@ -15,8 +16,14 @@
     </form>
     <a id="custom-login-btn" @click.prevent="loginWithKakao()">
     </a>
+
+    <hr>
+
     <div><br><Kakao /></div>
-    <router-link to="/registration">Registration</router-link>
+    
+    <hr>
+
+    <router-link class="btn" to="/registration">Registration</router-link>
     </div>
 </template>
 

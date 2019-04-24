@@ -3,23 +3,18 @@
     <div v-if="loading">Loading...</div>
     <div v-else>
       <div>
-        <!-- <form @submit.prevent="chageOption"> -->
-          <form>
-            <table>
-              <tr>
-                <th>Keyword</th>
-                <th>Alarm</th>
-                <th>Save</th>
-                <th>Delete</th>
-              </tr>
-              <tr v-for="key in keywords">
-                <td><input type="text" name="" v-model="key.keyword" /></td>
-                <td><input type="checkbox" v-model="key.alarm" /></td>
-                <td><button @click.prevent="chageOption(key)">save</button></td>
-                <td><button @click.prevent="deleteKeyword(key)">Delete</button></td>
-              </tr>
-            </table>
-        </form>
+        <table striped hover>
+          <tr>
+            <th>Keyword</th>
+            <th>Alarm</th>
+            <th>Save</th>
+            <th>Delete</th>           </tr>
+          <tr v-for="key in keywords">
+            <td><input class="key_input" type="text" name="" v-model="key.keyword" /></td>
+            <td><input type="checkbox" v-model="key.alarm" /></td>
+            <td><button class="btn" @click.prevent="chageOption(key)">save</button></td>
+            <td><button class="btn" @click.prevent="deleteKeyword(key)">Delete</button></td>           </tr>
+        </table>
       </div>
     </div>
   </div>
@@ -72,14 +67,21 @@ export default {
 </script>
 
 <style>
-table, th, tr, td {
-  border: 1px solid;
-  width: 100%;
+td {
+  background-color: #b8f3f7;
+  padding: 0px;
+  margin: 0px;
+  vertical-align: middle;
+  border-collapse: collapse;
 }
 form {
-  border: 1px solid;
+  border: 0px solid;
 }
 input {
-  border: 1px solid;
+  border: 0px;
+}
+.key_input {
+  background-color:#74f1fa;
+  text-align: center;
 }
 </style>

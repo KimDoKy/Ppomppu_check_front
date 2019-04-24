@@ -1,10 +1,21 @@
 <template>
   <div>
-    <router-link to="/">Home</router-link>
-    <a href="" v-if="isAuth" @click.prevent="logout">Logout</a>
-    <router-link v-else to="/login">Login</router-link>
-    <router-link to="/UserInfo">UserInfo</router-link>
-  </div>
+  <b-navbar class="nav" toggleable="lg" type="dark" variant="info">
+    <b-navbar-brand to="/">뽐뿌 uPDATE cHECKER</b-navbar-brand>
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+    <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-nav>
+        <b-nav-item href="" v-if="isAuth" @click.prevent="logout">Logout</b-nav-item>
+        <b-nav-item v-else to="/login">Login</b-nav-item>
+      </b-navbar-nav>
+        <b-nav-item-dropdown v-if="isAuth" right>
+          <!-- Using 'button-content' slot -->
+          <template slot="button-content"><em>User</em></template>
+          <b-dropdown-item to="/UserInfo">Profile</b-dropdown-item>
+        </b-nav-item-dropdown>
+    </b-collapse>
+  </b-navbar>
+</div>
 </template>
 
 <script>

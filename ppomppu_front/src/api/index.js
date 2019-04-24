@@ -1,8 +1,8 @@
 import axios from 'axios'
 import router from '../router'
 
-// const DOMAIN = 'https://api.pycon.shop'
-const DOMAIN = 'http://localhost:8000'
+const DOMAIN = 'https://api.pycon.shop'
+// const DOMAIN = 'http://localhost:8000'
 const Unauthorized = 401
 const onUnauthorized = () => {
   router.push('/login')
@@ -36,10 +36,10 @@ export const contents = {
     return request('post', '/keywords/', {keyword})
   },
   destroy(id) {
-    return request('delete', `/keywords/${id}`)
+    return request('delete', `/keywords/${id}/`)
   },
   update(id, keyword, alarm) {
-    return request('patch', `/keywords/${id}`, {keyword, alarm})
+    return request('patch', `/keywords/${id}/`, {keyword, alarm})
   }
 }
 
