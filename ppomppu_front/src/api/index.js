@@ -36,10 +36,10 @@ export const contents = {
     return request('post', '/keywords/', {keyword})
   },
   destroy(id) {
-    return request('delete', `/keywords/${id}`)
+    return request('delete', `/keywords/${id}/`)
   },
   update(id, keyword, alarm) {
-    return request('patch', `/keywords/${id}`, {keyword, alarm})
+    return request('patch', `/keywords/${id}/`, {keyword, alarm})
   }
 }
 
