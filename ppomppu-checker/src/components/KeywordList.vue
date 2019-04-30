@@ -38,10 +38,7 @@ export default {
     ...mapState([
       'keywords',
       'keywordLength'
-    ]),
-    keywordLength() {
-      console.log('length fetch')
-    }
+    ])
   },
   methods: {
     ...mapActions([
