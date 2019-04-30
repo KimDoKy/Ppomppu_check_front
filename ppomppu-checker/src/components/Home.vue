@@ -16,14 +16,13 @@
 <script>
 import {mapState, mapMutations} from 'vuex'
 import AddKeyword from './AddKeyword.vue'
-import {contents} from '../api'
 import KeywordList from './KeywordList.vue'
 
 export default {
   computed: {
     ...mapState([
-      'isAddKey'
-    ])
+      'isAddKey',
+    ]),
   },
   components: {
     AddKeyword,
@@ -32,7 +31,7 @@ export default {
   methods: {
     ...mapMutations([
       'SET_IS_ADD_KEY'
-    ])
+    ]),
   }
 }
 </script>
@@ -44,9 +43,6 @@ table, th, tr, td {
   padding: 0px;
   margin: auto;
   position: 50% 50%;
-}
-form {
-  border: 1px solid;
 }
 input {
   border: 1px solid;

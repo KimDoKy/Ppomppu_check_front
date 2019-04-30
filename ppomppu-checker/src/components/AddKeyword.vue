@@ -24,11 +24,14 @@
 
 <script>
 import Modal from './Modal.vue'
-import {mapMutations, mapActions} from 'vuex'
+import {mapMutations, mapActions, mapState} from 'vuex'
 
 export default {
   components: {
-    Modal
+    Modal,
+    ...mapState([
+      'keywordLength'
+    ])
   },
   data() {
     return {
@@ -43,6 +46,9 @@ export default {
   },
   mounted() {
     this.$refs.input.focus()
+  },
+  destroyed() {
+    this.FETCH_KEYWORD()
   },
   methods: {
     ...mapMutations([

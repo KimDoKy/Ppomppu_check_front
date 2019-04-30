@@ -15,18 +15,6 @@ import {kkApiKey} from '../.secret/config'
 import {auth} from '../api'
 import {mapActions} from 'vuex'
 
-/*
-let onSuccess = (data) => {
-  console.log(data)
-  let token = auth.socialLogin(data.access_token)
-  console.log("success")
-}
-let onFailure = (data) => {
-  console.log(data)
-  console.log("failure")
-}
-*/
-
 export default {
   name: 'Kakao',
   data() {

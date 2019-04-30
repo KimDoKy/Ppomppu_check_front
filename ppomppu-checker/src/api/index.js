@@ -1,8 +1,8 @@
 import axios from 'axios'
 import router from '../router'
 
-const DOMAIN = 'https://api.pycon.shop'
-// const DOMAIN = 'http://localhost:8000'
+// const DOMAIN = 'https://api.pycon.shop'
+const DOMAIN = 'http://localhost:8000'
 const Unauthorized = 401
 const onUnauthorized = () => {
   router.push('/login')

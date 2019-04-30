@@ -38,17 +38,14 @@ export default {
     ...mapState([
       'keywords',
       'keywordLength'
-    ]),
-    keywordLength() {
-      console.log('length fetch')
-    }
+    ])
   },
   methods: {
     ...mapActions([
       'FETCH_KEYWORD',
     ]),
     fetchData() {
-      loading: true
+      true
       this.FETCH_KEYWORD()
         .finally(() => {
           this.loading = false
