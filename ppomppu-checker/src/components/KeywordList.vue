@@ -48,7 +48,7 @@ export default {
       'FETCH_KEYWORD',
     ]),
     fetchData() {
-      loading: true
+      true
       this.FETCH_KEYWORD()
         .finally(() => {
           this.loading = false

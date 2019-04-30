@@ -45,9 +45,6 @@ table, th, tr, td {
   margin: auto;
   position: 50% 50%;
 }
-form {
-  border: 1px solid;
-}
 input {
   border: 1px solid;
 }
