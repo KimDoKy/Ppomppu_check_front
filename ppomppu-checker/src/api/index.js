@@ -30,7 +30,7 @@ if (token) setAuthInHeader(token)
 
 export const contents = {
   fetch() {
-    return request('get', '/users/')
+    return request('get', '/users/info/')
   },
   create(keyword) {
     return request('post', '/keywords/', {keyword})
@@ -59,6 +59,13 @@ export const auth = {
       email:email,
       password1:pw1,
       password2:pw2
+    })
+  },
+  logout(token) {
+    return axios.post("http://localhost:8000/rest-auth/logout/", {
+      headers: {
+        Authorization: token
+      }
     })
   }
 }

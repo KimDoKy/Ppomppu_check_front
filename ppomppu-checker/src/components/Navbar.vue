@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import {setAuthInHeader} from '../api'
+import {setAuthInHeader, auth} from '../api'
 import {mapGetters, mapMutations} from 'vuex'
 
 export default {
@@ -33,6 +33,7 @@ export default {
       'LOGOUT'
     ]),
     logout() {
+      auth.logout(localStorage.token)
       this.LOGOUT()
       this.$router.push('/login')
     }
