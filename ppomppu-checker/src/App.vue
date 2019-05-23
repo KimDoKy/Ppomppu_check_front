@@ -1,4 +1,5 @@
 <template>
+
   <div id="app">
     <Navbar />
 
@@ -13,8 +14,6 @@
     <br>
     <img src="./assets/logo.png">
     <div>
-      뽐뿌 uPDATE cHECKER
-      <br />
       <router-view></router-view>
     </div>
     <Footer />

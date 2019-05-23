@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../components/Home.vue'
 import Registration from '../components/Registration.vue'
 import Login from '../components/Login.vue'
+import Oauth from '../components/Oauth.vue'
 import UserInfo from '../components/UserInfo.vue'
 import NotFound from '../components/NotFound.vue'
 import store from '../store'
@@ -21,6 +22,7 @@ const router = new VueRouter({
     { path: '/registration', component: Registration },
     { path: '/login', component: Login },
     { path: '/userinfo', component: UserInfo, beforeEnter: requireAuth },
+    { path: '/oauth', component: Oauth },
     { path: '*', component: NotFound }
   ]
 })
