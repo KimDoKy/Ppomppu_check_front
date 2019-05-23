@@ -1,7 +1,10 @@
 <template>
   <div>
+
     <h2>Log in</h2>
+
     <hr>
+
     <form @submit.prevent="onSubmit">
       <div class="email">
         <label for="email">Email</label>
@@ -14,22 +17,23 @@
       <button type="submit" class="btn" :class="{'btn-success': !invalidForm}" :disabled="invalidForm">Login</button>
       <p class="error" v-if="error">{{error}}</p>
     </form>
-    <a id="custom-login-btn" @click.prevent="loginWithKakao()">
-    </a>
 
     <hr>
 
-    <div><br><Kakao /></div>
+    <a id="custom-login-btn" @click.prevent="kakaoLogin()">
+      <img src="https://developers.kakao.com/assets/img/about/logos/kakaologin/en/kakao_account_login_btn_medium_narrow.png">
+    </a>
     
     <hr>
 
     <router-link class="btn" to="/registration">Registration</router-link>
+
     </div>
 </template>
 
 <script>
 import {mapActions} from 'vuex'
-import Kakao from './Kakao.vue'
+import {kakaoOauthUrl} from '../.secret/config'
 import Registration from './Registration.vue'
 
 export default {
@@ -38,8 +42,9 @@ export default {
       email: '',
       password: '',
       error: '',
-      rPath: ''
-    }
+      rPath: '',
+      url: kakaoOauthUrl
+      }
   },
   computed: {
     invalidForm() {
@@ -48,10 +53,11 @@ export default {
   },
   created() {
     this.rPath = this.$route.query.rPath || '/'
+    document.cookie = 'token='
   },
   methods: {
     ...mapActions([
-      'LOGIN'
+      'LOGIN',
     ]),
     onSubmit() {
       this.LOGIN({email:this.email, password:this.password})
@@ -61,9 +67,12 @@ export default {
         .catch(err => {
           this.error = "로그인 정보가 일치하지 않습니다."
         })
+      },
+    kakaoLogin() {
+      location.href = this.url
       }
   },
-  components: { Kakao, Registration }
+  components: { Registration }
 }
 </script>
 
