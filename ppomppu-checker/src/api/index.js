@@ -1,7 +1,9 @@
 import axios from 'axios'
 import router from '../router'
 
-const DOMAIN = 'https://api.pycon.shop'
+// const DOMAIN = 'https://api.pycon.shop'
+const DOMAIN = 'http://localhost:8000'
+// const DOMAIN = 'http://ec2-13-124-26-214.ap-northeast-2.compute.amazonaws.com:8000'
 const Unauthorized = 401
 const onUnauthorized = () => {
   router.push('/login')
@@ -56,6 +58,17 @@ export const auth = {
       password1:pw1,
       password2:pw2
     })
+  },
+  passReset(uid, token, new_password1, new_password2) {
+    return request('post', '/rest-auth/password/reset/confirm/', {
+      uid:uid,
+      token:token,
+      new_password1:new_password1,
+      new_password2:new_password2
+    })
+  },
+  resetLink(email) {
+    return request('post', '/rest-auth/password/reset/', {email})
   },
   logout(token) {
     return axios.post("https://api.pycon.shop/rest-auth/logout/", {
