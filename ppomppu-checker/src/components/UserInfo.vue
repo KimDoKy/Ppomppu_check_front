@@ -11,6 +11,7 @@
         <td>{{userInfo.email}}</td>
       </tr>
     </table>
+      <router-link class="btn" to="/change_pw">Change PW</router-link>
   </div>
 </template>
 

@@ -37,6 +37,9 @@ const actions =  {
     RESET_LINK(_, {email}) {
       return api.auth.resetLink(email)
     },
+    CHANGE_PASSWORD(_, {pw1, pw2}) {
+      return api.auth.changePassword(pw1, pw2)
+    },
     KAKAO_LOGIN({commit}, {key}){
         commit('LOGIN', key)
       }

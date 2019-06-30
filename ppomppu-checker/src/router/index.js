@@ -5,6 +5,7 @@ import Registration from '../components/Registration.vue'
 import Login from '../components/Login.vue'
 import ResetLink from '../components/ResetLink.vue'
 import PassReset from '../components/PassReset.vue'
+import ChangePW from '../components/ChangePW.vue'
 import Oauth from '../components/Oauth.vue'
 import UserInfo from '../components/UserInfo.vue'
 import NotFound from '../components/NotFound.vue'
@@ -26,6 +27,7 @@ const router = new VueRouter({
     { path: '/reset-link', component: ResetLink },
     { path: '/pass-reset/:uid/:token', component: PassReset },
     { path: '/userinfo', component: UserInfo, beforeEnter: requireAuth },
+    { path: '/change_pw', component: ChangePW },
     { path: '/oauth', component: Oauth },
     { path: '*', component: NotFound }
   ]

@@ -67,6 +67,12 @@ export const auth = {
       new_password2:new_password2
     })
   },
+  changePassword(new_password1, new_password2) {
+    return request('post', '/rest-auth/password/change/', {
+      new_password1:new_password1,
+      new_password2:new_password2
+    })
+  },
   resetLink(email) {
     return request('post', '/rest-auth/password/reset/', {email})
   },
