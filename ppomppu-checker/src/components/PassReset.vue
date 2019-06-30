@@ -11,7 +11,7 @@
         <label for="password">Check Password</label>
         <input class="form-control" type="password" v-model="password2" />
       </div>
-      <button type="submit" class="btn" :class="{'btn-success': !invalidForm}" :disabled="invalidForm">Login</button>
+      <button type="submit" class="btn" :class="{'btn-success': !invalidForm}" :disabled="invalidForm">submit</button>
       <p class="error" v-if="error">{{error}}</p>
       <p class="success" v-if="success">{{success}}</p>
     </form>
