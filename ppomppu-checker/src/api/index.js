@@ -78,11 +78,17 @@ export const auth = {
       new_username:new_username
     })
   },
+  MembershipWithdrawal(password) {
+    return request('post', '/users/membership-withdrawal/', {
+      check_pw:password
+    })
+  },
   resetLink(email) {
     return request('post', '/rest-auth/password/reset/', {email})
   },
   logout(token) {
-    return axios.post("https://api.pycon.shop/rest-auth/logout/", {
+    // return axios.post("https://api.pycon.shop/rest-auth/logout/", {
+    return axios.post("http://localhost:8000/rest-auth/logout/", {
       headers: {
         Authorization: token
       }

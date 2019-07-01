@@ -13,6 +13,7 @@
       </tr>
     </table>
       <router-link class="btn" to="/change_pw">Change PW</router-link>
+      <router-link class="btn" to="/membership-withdrawal">Membership Withdrawal</router-link>
   </div>
 </template>
 
