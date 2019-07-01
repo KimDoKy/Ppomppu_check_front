@@ -7,8 +7,9 @@
         <th>email</th>
       </tr>
       <tr>
-        <td>{{userInfo.username}}</td>
+        <td><input type="text" v-model="userInfo.username" /></td>
         <td>{{userInfo.email}}</td>
+        <button class="btn" @click.prevent="changeUsername(userInfo.username)">change user name</button>
       </tr>
     </table>
       <router-link class="btn" to="/change_pw">Change PW</router-link>
@@ -38,6 +39,15 @@ export default {
     ]),
     fetchData() {
       this.ADD_UESRINFO()
+    },
+    changeUsername(userInfo) {
+      auth.changeUsername(userInfo)
+        .then(data => {
+          console.log(data)
+        })
+        .catch(err => {
+          console.log(err)
+        })
     }
   }
 }

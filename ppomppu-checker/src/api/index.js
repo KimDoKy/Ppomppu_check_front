@@ -73,6 +73,11 @@ export const auth = {
       new_password2:new_password2
     })
   },
+  changeUsername(new_username) {
+    return request('post', '/users/change-username/', {
+      new_username:new_username
+    })
+  },
   resetLink(email) {
     return request('post', '/rest-auth/password/reset/', {email})
   },
