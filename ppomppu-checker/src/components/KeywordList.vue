@@ -8,11 +8,12 @@
             <th>Keyword</th>
             <th>Alarm</th>
             <th>Save</th>
-            <th>Delete</th>           </tr>
+            <th>Delete</th>
+          </tr>
           <tr v-for="key in keywords">
             <td><input class="key_input" type="text" name="" v-model="key.keyword" /></td>
-            <td><input type="checkbox" v-model="key.alarm" /></td>
-            <td><button class="btn" @click.prevent="chageOption(key)">save</button></td>
+            <td><input type="checkbox" v-model="key.alarm" @click="checkUpdate(key)"/></td>
+            <td><button class="btn" @click.prevent="changeOption(key)">save</button></td>
             <td><button class="btn" @click.prevent="deleteKeyword(key)">Delete</button></td>           </tr>
         </table>
       </div>
@@ -22,7 +23,6 @@
 
 <script>
 import {mapState, mapActions} from 'vuex'
-import AddKeyword from './AddKeyword.vue'
 import {contents} from '../api'
 
 export default {
@@ -45,20 +45,28 @@ export default {
       'FETCH_KEYWORD',
     ]),
     fetchData() {
-      true
+      this.loading = true
       this.FETCH_KEYWORD()
         .finally(() => {
           this.loading = false
         })
     },
-    chageOption(key) {
+    checkUpdate(key) {
+      if (key.alarm == true) {
+        key.alarm = false
+      } else {
+        key.alarm = true
+      }
+      contents.update(key.id, key.keyword, key.alarm)
+    },
+    changeOption(key) {
       contents.update(key.id, key.keyword, key.alarm)
     },
     deleteKeyword(key) {
       contents.destroy(key.id)
         .then(_=> this.FETCH_KEYWORD())
         .catch(error => console.log(error))
-    }
+    },
   }
 }
 </script>
