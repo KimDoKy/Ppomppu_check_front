@@ -12,12 +12,14 @@ const actions =  {
         })
     },
     LOGIN({commit}, {email, password}) {
-      return api.auth.login(email, password).then(
-        ({key}) => commit('LOGIN', key)
+      return api.auth.login(email, password)
+        .then(({key}) =>
+          commit('LOGIN', key)
     )},
     SOCIAL_LOGIN({commit}, {access_token}) {
-      return api.auth.socialLogin(access_token).then(
-       ({key}) => commit('LOGIN', key) 
+      return api.auth.socialLogin(access_token)
+        .then(({key}) =>
+          commit('LOGIN', key)
     )},
     ADD_UESRINFO({commit}) {
       return api.auth.userInfo()
@@ -29,9 +31,18 @@ const actions =  {
       return api.auth.registration(username, email, password1, password2)
         .then(({key}) => commit('LOGIN', key)
     )},
-    KAKAO_LOGIN({commit}, {key}) {
+    PASS_RESET(_, {uid, token, pw1, pw2}) {
+      return api.auth.passReset(uid, token, pw1, pw2)
+    },
+    RESET_LINK(_, {email}) {
+      return api.auth.resetLink(email)
+    },
+    CHANGE_PASSWORD(_, {pw1, pw2}) {
+      return api.auth.changePassword(pw1, pw2)
+    },
+    KAKAO_LOGIN({commit}, {key}){
         commit('LOGIN', key)
-    }
+      }
   }
 
 export default actions

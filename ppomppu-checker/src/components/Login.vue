@@ -18,15 +18,17 @@
       <p class="error" v-if="error">{{error}}</p>
     </form>
 
+    <!--
     <hr>
-
     <a id="custom-login-btn" @click.prevent="kakaoLogin()">
       <img src="https://developers.kakao.com/assets/img/about/logos/kakaologin/en/kakao_account_login_btn_medium_narrow.png">
     </a>
-    
+    -->
+
     <hr>
 
-    <router-link class="btn" to="/registration">Registration</router-link>
+    <router-link class="btn" to="/registration">Registration</router-link> /
+    <router-link class="btn" to="/reset-link">Reset Password</router-link>
 
     </div>
 </template>
@@ -53,7 +55,7 @@ export default {
   },
   created() {
     this.rPath = this.$route.query.rPath || '/'
-    document.cookie = 'token='
+    // document.cookie = 'token='
   },
   methods: {
     ...mapActions([
