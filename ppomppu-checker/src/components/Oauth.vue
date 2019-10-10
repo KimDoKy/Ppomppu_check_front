@@ -5,18 +5,15 @@
 <script>
 import { mapActions } from 'vuex';
 export default {
-   data() {
-       token = ''
-   },
    created() {
        this.token = document.cookie.substr(document.cookie.indexOf('=')+1)
        this.KAKAO_LOGIN({key:this.token})
-       window.location.href="https://app.pycon.shop/"
+       // window.location.href="https://app.pycon.shop/"
    },
    methods: {
        ...mapActions([
            'KAKAO_LOGIN'
-       ])
+       ]),
    }
 }
 </script>

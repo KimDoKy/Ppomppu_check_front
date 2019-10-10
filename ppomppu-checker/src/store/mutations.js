@@ -23,6 +23,9 @@ const mutations = {
     },
     SET_KEYWORD_LENGTH(state, length) {
       return state.keywordLength = length
+    },
+    SET_BOARD(state, posts) {
+      return state.posts = posts
     }
   }
 

@@ -11,6 +11,12 @@ const actions =  {
           commit('SET_KEYWORD_LENGTH', data.keywords.length)
         })
     },
+    FETCH_POSTS ({commit}) {
+      return api.boards.getList()
+        .then(data => {
+          commit('SET_BOARD', data)
+        })
+    },
     LOGIN({commit}, {email, password}) {
       return api.auth.login(email, password)
         .then(({key}) =>

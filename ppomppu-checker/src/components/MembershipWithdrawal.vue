@@ -19,6 +19,7 @@
 
 <script>
 import {auth} from '../api'
+import {mapMutations} from 'vuex'
 
 export default {
   data() {
@@ -29,6 +30,9 @@ export default {
     }
   },
   methods: {
+    ...mapMutations([
+      'LOGOUT'
+    ]),
     onSubmit() {
       auth.MembershipWithdrawal(this.password)
         .then(data => {
@@ -37,6 +41,8 @@ export default {
         .catch(err => {
           this.error = "패스워드를 확인하세요."
         })
+      this.LOGOUT()
+      this.$router.push('/login')
     }
   }
 }

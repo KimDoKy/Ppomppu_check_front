@@ -3,7 +3,8 @@ const state = {
     isAddKey: false,
     keywords: [],
     token: '',
-    keywordLength: 0
+    keywordLength: 0,
+    posts: [],
   }
 
 export default state
