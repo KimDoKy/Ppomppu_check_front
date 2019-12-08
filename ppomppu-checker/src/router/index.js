@@ -8,8 +8,6 @@ import PassReset from '../components/PassReset.vue'
 import ChangePW from '../components/ChangePW.vue'
 import MembershipWithdrawal from '../components/MembershipWithdrawal.vue'
 import Oauth from '../components/Oauth.vue'
-import Board from '../components/Board.vue'
-import Post from '../components/Post.vue'
 import UserInfo from '../components/UserInfo.vue'
 import NotFound from '../components/NotFound.vue'
 import store from '../store'
@@ -33,9 +31,6 @@ const router = new VueRouter({
     { path: '/change_pw', component: ChangePW },
     { path: '/oauth', component: Oauth },
     { path: '/membership-withdrawal', component: MembershipWithdrawal },
-    { path: '/board', component: Board, children: [
-      { path: ':pid/', component: Post }
-    ]},
     { path: '*', component: NotFound }
   ]
 })
