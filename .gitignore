@@ -4,6 +4,9 @@ dist/
 npm-debug.log
 yarn-error.log
 .secret/
+*.cache
+*.swp
+.firebase*
 
 # Editor directories and files
 .idea
