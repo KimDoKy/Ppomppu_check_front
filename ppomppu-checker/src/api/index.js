@@ -2,8 +2,8 @@ import axios from 'axios'
 import router from '../router'
 
 // const DOMAIN = 'https://api.pycon.shop'
-const DOMAIN = 'http://ec2-13-124-48-133.ap-northeast-2.compute.amazonaws.com'
 // const DOMAIN = 'http://localhost:8000'
+const DOMAIN = 'https://pp-api.czarcie.shop'
 const Unauthorized = 401
 const onUnauthorized = () => {
   router.push('/login')
